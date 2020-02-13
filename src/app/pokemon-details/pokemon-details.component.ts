@@ -20,7 +20,7 @@ export class PokemonDetailsComponent implements OnInit {
     this.theresNoError = true;
 
     this.route.params.subscribe(parameter => {
-      this.pokeService.getPokemon(parameter.pokemonInfo).subscribe(res => {
+      this.pokeService.getPokemon(parameter.pokemonInfo.toLowerCase()).subscribe(res => {
         const id: number = res["id"];
         const name: string = res["name"];
         const sprite: string = res["sprites"].front_default;
@@ -34,9 +34,10 @@ export class PokemonDetailsComponent implements OnInit {
         }
 
         this.pokemonInfo = new Pokemon(id, name, sprite, height, weight, types);
-        // localStorage.setItem("favorite",this.pokemonInfo.name);
       }, err => {
         this.theresNoError = false;
+      },()=>{
+        this.theresNoError = true;
       });
     });
   }
