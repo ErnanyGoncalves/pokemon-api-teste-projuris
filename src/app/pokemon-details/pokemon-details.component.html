@@ -1,1 +1,23 @@
-<p>pokemon-details works!</p>
+<div class="text-center">
+    <h2>#{{pokemonInfo.id}} - {{pokemonInfo.name | titlecase}}</h2>
+    <img style="width: 200px; height: 200px;" src="{{pokemonInfo.sprite}}" alt="{{pokemonInfo.name | titlecase }}">
+    <div class="row mt-4 mb-4">
+        <div class="col-12">
+            <h3>Type(s):</h3>
+        </div>
+        <div *ngFor="let type of pokemonInfo.types" class="col mt-4">
+            <h4 class="type {{type}} d-inline">{{type | titlecase}}</h4>
+        </div>
+    </div>
+    <hr style="width: 60%;">
+    <div class="row mt-5 mb-5">
+        <div class="col">
+            <h4>Height: {{pokemonInfo.height / 10}} m</h4>
+        </div>
+        <div class="col">
+            <h4>Weight: {{pokemonInfo.weight / 10}} kg</h4>
+        </div>
+    </div>
+
+
+</div>

@@ -9,7 +9,6 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
-import { MiniCardComponent } from './pokemon-list/mini-card/mini-card.component';
 
 const pokedexRoutes:Routes = [
   {path:'',component:PokemonListComponent},
@@ -23,8 +22,7 @@ const pokedexRoutes:Routes = [
     PageControlComponent,
     SearchBarComponent,
     PokemonDetailsComponent,
-    PokemonListComponent,
-    MiniCardComponent
+    PokemonListComponent
   ],
   imports: [
     BrowserModule,

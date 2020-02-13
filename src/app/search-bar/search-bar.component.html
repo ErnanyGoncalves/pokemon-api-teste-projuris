@@ -1,11 +1,11 @@
 <form (ngSubmit)="searchPokemon(f)" #f="ngForm">
     <div class="form-row d-flex justify-content-between">
         <div>
-            <img style="max-height: 40px;" src="../../assets/PokemonLogo.svg" alt="Logo">
+            <img style="max-height: 40px; cursor: pointer;" [routerLink]="['']" src="../../assets/PokemonLogo.svg" alt="Logo">
         </div>
         <div class="col form-group">
             <input class="form-control" ngModel name="pokemonSearchInfo" type="text"
-                placeholder="Pokémon name or number" required>
+                placeholder="Pokémon number/name" required>
         </div>
         <div>
             <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Search</button>

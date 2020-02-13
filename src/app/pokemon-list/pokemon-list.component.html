@@ -1,1 +1,10 @@
-<app-mini-card></app-mini-card>
+<div class="row">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let pokemon of pokemons">
+        <div class="card text-center m-3" [routerLink]="['/pokemon',pokemon.id]">
+            <img class="mx-auto" style="width: 100px; height:100px;" src="{{pokemon.sprite}}" alt="pokemon.name">
+            <div class="card-body">
+                <h5>#{{pokemon.id}} - {{pokemon.name | titlecase }}</h5>
+            </div>
+        </div>
+    </div>
+</div>
