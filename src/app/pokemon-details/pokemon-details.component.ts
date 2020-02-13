@@ -10,13 +10,15 @@ import { Pokemon } from '../pokemon.model';
 })
 export class PokemonDetailsComponent implements OnInit {
 
-  pokemonInfo: Pokemon;
+  pokemonInfo: Pokemon = new Pokemon(null, null, null, null, null, null);
+  theresNoError: boolean;
 
-  constructor(private pokeService: PokemonApiService, private route: ActivatedRoute, private router: Router) {
-    this.pokemonInfo = new Pokemon(null, null, null, null, null, null);
+  constructor( private pokeService: PokemonApiService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
+    this.theresNoError = true;
+
     this.route.params.subscribe(parameter => {
       this.pokeService.getPokemon(parameter.pokemonInfo).subscribe(res => {
         const id: number = res["id"];
@@ -34,8 +36,7 @@ export class PokemonDetailsComponent implements OnInit {
         this.pokemonInfo = new Pokemon(id, name, sprite, height, weight, types);
         // localStorage.setItem("favorite",this.pokemonInfo.name);
       }, err => {
-        // alert("Pokémon not found!");
-        this.router.navigate([""]);
+        this.theresNoError = false;
       });
     });
   }

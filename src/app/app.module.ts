@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { PageControlComponent } from './page-control/page-control.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
@@ -19,7 +18,6 @@ const pokedexRoutes:Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PageControlComponent,
     SearchBarComponent,
     PokemonDetailsComponent,
     PokemonListComponent

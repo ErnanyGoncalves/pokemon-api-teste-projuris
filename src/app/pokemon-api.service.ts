@@ -10,10 +10,9 @@ export class PokemonApiService {
 
   baseUrl: string = "https://pokeapi.co/api/v2/";
 
-  fetchPokemonData(offset: number) {
-    return this.httpClient.get(`${this.baseUrl}pokemon?offset=${offset}&limit=20`);
+  fetchPokemonData(offset:number, limit:number) {
+    return this.httpClient.get(`${this.baseUrl}pokemon?offset=${offset}&limit=${limit}`);
   }
-  
 
   getPokemon(info:string){
     return this.httpClient.get(`${this.baseUrl}pokemon/${info}`);
