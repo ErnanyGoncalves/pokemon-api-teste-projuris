@@ -19,10 +19,6 @@ export class FavoritePokemonService {
     this.listFavoritePokemon.splice(foundIndex, 1);
   }
 
-  getFavoritePokemons() {
-    return this.listFavoritePokemon;
-  }
-
   isFavorite(name: string) {
     const data = this.listFavoritePokemon.find(info => {
       return info.name === name;
