@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pokedex } from '../pokedex.model';
 import { PokemonApiService } from '../pokemon-api.service';
 import { ActivatedRoute } from '@angular/router';
+import { FavoritePokemonService } from '../favorite-pokemon.service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -27,7 +28,7 @@ export class PokemonListComponent implements OnInit {
   offset: number = 0;
   limit: number = 20;
 
-  constructor(private pokeService: PokemonApiService,private route: ActivatedRoute) { }
+  constructor(private pokeService: PokemonApiService,private route: ActivatedRoute, private favoritePkmn : FavoritePokemonService) { }
 
   ngOnInit(): void {
 
@@ -53,7 +54,6 @@ export class PokemonListComponent implements OnInit {
       this.loadList(res["results"]);
     });
   }
-
 
 
   loadList(results) {
@@ -86,5 +86,9 @@ export class PokemonListComponent implements OnInit {
       this.previousPage.offset = Number(splitedPrvLink[1]);
       this.previousPage.limit = Number(splitedPrvLink[3]);
     }
+  }
+
+  checkFavorite(name:string){
+    return this.favoritePkmn.isFavorite(name);
   }
 }

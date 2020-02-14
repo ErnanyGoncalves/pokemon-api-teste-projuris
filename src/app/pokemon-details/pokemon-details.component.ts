@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { PokemonApiService } from '../pokemon-api.service';
 import { Pokemon } from '../pokemon.model';
+import { FavoritePokemonService } from '../favorite-pokemon.service';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -10,10 +11,11 @@ import { Pokemon } from '../pokemon.model';
 })
 export class PokemonDetailsComponent implements OnInit {
 
+  checkFavorite:boolean;
   pokemonInfo: Pokemon = new Pokemon(null, null, null, null, null, null);
   theresNoError: boolean;
 
-  constructor( private pokeService: PokemonApiService, private route: ActivatedRoute, private router: Router) {
+  constructor( private pokeService: PokemonApiService, private route: ActivatedRoute, private favoritePkmn : FavoritePokemonService) {
   }
 
   ngOnInit(): void {
@@ -34,12 +36,24 @@ export class PokemonDetailsComponent implements OnInit {
         }
 
         this.pokemonInfo = new Pokemon(id, name, sprite, height, weight, types);
+        this.checkFavorite = this.favoritePkmn.isFavorite(this.pokemonInfo.name);
       }, err => {
+        this.checkFavorite = false;
         this.theresNoError = false;
       },()=>{
         this.theresNoError = true;
       });
     });
+  }
+
+  favorite(id:number,name:string){
+    this.favoritePkmn.addFavorite(id,name);
+    this.checkFavorite = true;
+  }
+
+  unfavorite(name:string){
+    this.favoritePkmn.removeFavorite(name);
+    this.checkFavorite = false;
   }
 
 }

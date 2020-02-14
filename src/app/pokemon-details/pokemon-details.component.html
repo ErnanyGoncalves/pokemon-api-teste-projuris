@@ -1,5 +1,11 @@
-<div class="pokemon-details p-3 mb-4">
+<div [ngClass]="checkFavorite ? 'pokemon-favorite' : 'pokemon-details'" class="p-3 mb-4">
     <div *ngIf="theresNoError" class="text-center">
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-favorite btn-link" (click)="checkFavorite ?  unfavorite(pokemonInfo.name) : favorite(pokemonInfo.id, pokemonInfo.name)">
+                <img *ngIf="!checkFavorite" src="../../assets/favorite.svg" alt="Favorite">
+                <img *ngIf="checkFavorite" src="../../assets/unfavorite.svg" alt="Unfavorite">
+            </button>
+        </div>
         <h2>#{{pokemonInfo.id}} - {{pokemonInfo.name | titlecase}}</h2>
         <img style="width: 200px; height: 200px;" src="{{pokemonInfo.sprite}}" alt="{{pokemonInfo.name | titlecase }}">
         <div class="row mt-4 mb-4">

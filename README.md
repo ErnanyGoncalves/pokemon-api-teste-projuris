@@ -1,28 +1,27 @@
-# PokemonApiTesteProjuris
+# Projeto Pokédex - Teste Projuris
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
+Projeto criado afim de listar, buscar e mostrar detalhes dos Pokémon em uma Pokédex.
 
-## Development server
+## Instalação
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Antes de ser possível a execução do programa, é necessário a instalação do gerenciador de pacotes NPM e do Angular CLI:
 
-## Code scaffolding
+### Node.js (NPM)
+Primeiramente é de extrema importância estar com o Node.js (NPM) instalado. Com ele é possivel inicializar um projeto, instalar pacotes de terceiros, instalar os pacotes do projeto e executar o servidor. Para isso:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- É necessário acessar o site do [NodeJs](https://nodejs.org/en/) e baixar a versão mais atual;
+- Após a instalação e utilizando o terminal, é preciso ir no diretório **pokemon-api-teste-projuris** para executar o comando `npm install`. 
 
-## Build
+> **Atenção:** até o momento foram inicializados as dependências do projeto, a forma de execução do Angular é diferente e será explicado agora.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Angular CLI
 
-## Running unit tests
+Para dar início a execução do projeto, é necessário a instalação do Angular CLI. Alem de executar, ele permite a criação de projetos, componentes, serviços, etc. Para instalá-lo:
+- É necessário executar o comando `npm install -g @angular/cli` para instalá-lo globalmente pelo terminal;
+- Em seguida, é preciso estar no diretório do **pokemon-api-teste-projuris** utilizando o terminal;
+- E afim de executá-lo, utilize o comando `ng serve`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+> Para mais informações acesse o site do [AngularCLI](https://cli.angular.io/).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-"# pokemon-api-teste-projuris" 
+## Front-end - Angular - Estrutura

@@ -2,7 +2,24 @@
     background-color: white;
     min-height: 300px;
     border-radius: 15px;
+}
 
+.pokemon-favorite{
+    background-color: #ffd7d4;
+    min-height: 300px;
+    border-radius: 15px;
+}
+
+.btn-favorite{
+    background-color: white;
+    border: 1px solid red;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+}
+
+.btn-favorite:hover{
+    background-color: #ffd7d4;
 }
 
 .type{
